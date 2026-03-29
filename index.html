@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Хімія 7 клас — Формули і молекулярна маса</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100vh;background:#12103a;font-family:'Nunito',Arial,sans-serif}
+.page{width:100%;min-height:100vh;padding:24px 36px 48px;display:flex;flex-direction:column;gap:18px}
+
+.hdr{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{font-size:28px;font-weight:900;color:#ffffff}
+.logo .ic{color:#ffd60a;margin-right:6px}
+.logo .sub{color:#a5b4fc}
+.badges{display:flex;gap:12px}
+.badge{background:#1e1b4b;border:2px solid #4f46e5;border-radius:40px;padding:8px 24px;font-size:18px;font-weight:800;color:#ffffff}
+.badge b{color:#ffd60a}
+
+.pb-wrap{height:10px;background:#1e1b4b;border-radius:5px;overflow:hidden}
+.pb-fill{height:100%;background:linear-gradient(90deg,#818cf8,#f472b6,#fbbf24);border-radius:5px;transition:width .5s}
+
+.card{background:#1e1b4b;border:2px solid #4f46e5;border-radius:20px;padding:28px 32px}
+.task-num{font-size:15px;font-weight:800;color:#ffd60a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.task-text{font-size:22px;font-weight:700;color:#ffffff;line-height:1.7;margin-bottom:18px}
+.task-text b{color:#ffd60a;font-weight:900}
+.refs{display:flex;flex-wrap:wrap;gap:10px}
+.ref{display:inline-flex;align-items:center;gap:8px;background:#2e2a7a;border:2px solid #6366f1;border-radius:12px;padding:8px 20px}
+.ref .rsym{font-size:22px;font-weight:900;color:#a5f3fc}
+.ref .rname{font-size:16px;font-weight:700;color:#e0e7ff}
+
+.step{background:#1e1b4b;border:2px solid #4f46e5;border-radius:20px;padding:24px 32px}
+.step.gs{background:#1a0f3d;border-color:#7c3aed}
+.stitle{font-size:17px;font-weight:900;color:#c7d2fe;letter-spacing:.07em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.stitle .bar{display:inline-block;width:5px;height:22px;background:#818cf8;border-radius:3px;flex-shrink:0}
+.step.gs .stitle{color:#ddd6fe}
+.step.gs .stitle .bar{background:#a78bfa}
+
+.formula{font-size:64px;font-weight:900;color:#a5f3fc;min-height:80px;letter-spacing:.02em;margin-bottom:18px;line-height:1.2;word-break:break-all}
+.formula sub{font-size:.52em;vertical-align:sub;color:#6ee7b7}
+.fph{font-size:28px;font-weight:700;color:#3730a3}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;min-height:48px;align-items:center;margin-bottom:14px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#2e2a7a;border:2px solid #6366f1;border-radius:12px;padding:7px 12px}
+.chip.gc{background:#2e1065;border-color:#7c3aed}
+.chip .cs{font-size:20px;font-weight:900;color:#ffffff}
+.chip.gc .cs{color:#ddd6fe}
+.chip .cnt{font-size:15px;font-weight:700;color:#a5b4fc;min-width:18px;text-align:center}
+.chip.gc .cnt{color:#c4b5fd}
+.chip .xb{width:26px;height:26px;border-radius:50%;border:2px solid #6366f1;background:transparent;cursor:pointer;font-size:16px;display:inline-flex;align-items:center;justify-content:center;color:#a5b4fc;font-family:inherit;font-weight:900;line-height:1}
+.chip .xb:hover{background:#4338ca;color:#fff}
+.chip.gc .xb{border-color:#7c3aed;color:#c4b5fd}
+.chip.gc .xb:hover{background:#4c1d95;color:#fff}
+
+.picks{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.pick{padding:10px 24px;background:#2e2a7a;border:2px solid #6366f1;border-radius:12px;cursor:pointer;font-size:19px;font-weight:900;color:#ffffff;font-family:inherit;transition:all .15s}
+.pick:hover{background:#4338ca;border-color:#a5b4fc;transform:translateY(-2px)}
+.pick .pn{font-size:14px;font-weight:700;color:#a5b4fc;margin-left:5px}
+.pick.gp{background:#2e1065;border-color:#7c3aed;color:#ddd6fe}
+.pick.gp .pn{color:#c4b5fd}
+.pick.gp:hover{background:#4c1d95;border-color:#c4b5fd}
+
+.cntr{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.clbl{font-size:18px;font-weight:800;color:#ddd6fe}
+.cbt{width:36px;height:36px;border-radius:50%;border:2px solid #7c3aed;background:#2e1065;cursor:pointer;font-size:20px;display:inline-flex;align-items:center;justify-content:center;color:#c4b5fd;font-family:inherit;font-weight:900}
+.cbt:hover{background:#4c1d95;color:#fff}
+.cnv{font-size:28px;font-weight:900;color:#a78bfa;min-width:32px;text-align:center}
+
+.note{font-size:16px;font-weight:700;color:#c7d2fe;margin-bottom:14px;padding:12px 16px;background:#161240;border-radius:10px;border-left:5px solid #818cf8;line-height:1.5}
+.mr-tbl{width:100%;border-collapse:collapse;margin-bottom:18px}
+.mr-tbl th{font-size:15px;font-weight:800;color:#a5b4fc;text-align:left;padding:8px 10px;border-bottom:2px solid #3730a3;letter-spacing:.06em;text-transform:uppercase}
+.mr-tbl td{padding:9px 10px;vertical-align:middle}
+.mi{width:90px;font-size:18px;font-weight:800;text-align:center;padding:8px 10px;background:#161240;border:2px solid #4338ca;border-radius:10px;color:#ffffff;outline:none;font-family:inherit}
+.mi:focus{border-color:#a5b4fc;background:#1e1b4b}
+.mi.ok{border-color:#4ade80;background:#052e16;color:#4ade80}
+.mi.er{border-color:#f87171;background:#2d0a0a;color:#f87171}
+.sym-l{font-size:20px;font-weight:900;color:#ffffff}
+.sym-s{font-size:15px;font-weight:700;color:#a5b4fc}
+.op{font-size:24px;font-weight:700;color:#6366f1;text-align:center;padding:0 6px}
+.grl{font-size:17px;font-weight:800;color:#c4b5fd;padding:8px 10px}
+
+.total{display:flex;align-items:center;gap:14px;padding:16px 22px;background:#161240;border-radius:14px;border:2px solid #818cf8;flex-wrap:wrap;margin-top:4px}
+.tl{font-size:24px;font-weight:900;color:#ffffff}
+.ti{width:120px;font-size:26px;font-weight:900;text-align:center;padding:10px 12px;background:#1e1b4b;border:2px solid #4338ca;border-radius:10px;color:#ffffff;outline:none;font-family:inherit}
+.ti:focus{border-color:#a5b4fc}
+.ti.ok{border-color:#4ade80;background:#052e16;color:#4ade80}
+.ti.er{border-color:#f87171;background:#2d0a0a;color:#f87171}
+.tu{font-size:18px;font-weight:800;color:#a5b4fc}
+
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.bcheck{padding:14px 40px;background:#4f46e5;color:#ffffff;border:none;border-radius:14px;cursor:pointer;font-size:20px;font-weight:900;font-family:inherit;transition:all .15s}
+.bcheck:hover{background:#6366f1;transform:translateY(-2px)}
+.bnext{padding:14px 30px;background:#1e1b4b;color:#ffffff;border:2px solid #6366f1;border-radius:14px;cursor:pointer;font-size:19px;font-weight:800;font-family:inherit;transition:all .15s}
+.bnext:hover{background:#2e2a7a;border-color:#a5b4fc;transform:translateY(-2px)}
+.bhint{padding:12px 26px;background:transparent;color:#a5b4fc;border:2px solid #4338ca;border-radius:14px;cursor:pointer;font-size:18px;font-weight:800;font-family:inherit;transition:all .15s}
+.bhint:hover{color:#ffffff;border-color:#818cf8}
+
+.fb{border-radius:14px;padding:16px 22px;font-size:19px;font-weight:700;line-height:1.6;margin-bottom:10px}
+.fb.fok{background:#052e16;border:2px solid #4ade80;color:#4ade80}
+.fb.fer{background:#2d0a0a;border:2px solid #f87171;color:#f87171}
+.fb.fhi{background:#1a0f3d;border:2px solid #a78bfa;color:#ddd6fe}
+
+.fin{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;gap:20px;min-height:60vh}
+.fin-ic{font-size:88px}
+.fin h3{font-size:40px;font-weight:900;color:#a5f3fc;text-align:center}
+.score-big{font-size:88px;font-weight:900;color:#ffd60a;line-height:1}
+.fin p{font-size:22px;font-weight:700;color:#e0e7ff;text-align:center;max-width:520px}
+
+sub{font-size:.58em;vertical-align:sub}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hdr">
+    <div class="logo"><span class="ic">⚗</span>Хімія <span class="sub">7 клас</span></div>
+    <div class="badges">
+      <div class="badge">Завдання: <b id="qn">1/12</b></div>
+      <div class="badge">Правильно: <b id="sc">0</b></div>
+    </div>
+  </div>
+  <div class="pb-wrap"><div class="pb-fill" id="pbf" style="width:0%"></div></div>
+  <div id="area"></div>
+</div>
+<script>
+const EL={H:{n:'Гідроген',ar:1},O:{n:'Оксиген',ar:16},C:{n:'Карбон',ar:12},N:{n:'Нітроген',ar:14},S:{n:'Сульфур',ar:32},Cl:{n:'Хлор',ar:35.5},Na:{n:'Натрій',ar:23},Ca:{n:'Кальцій',ar:40},K:{n:'Калій',ar:39},Mg:{n:'Магній',ar:24},Al:{n:'Алюміній',ar:27},P:{n:'Фосфор',ar:31}};
+const T=[
+  {txt:'Молекула складається з <b>2 атомів Гідрогену</b> і <b>1 атома Оксигену</b>.',els:['H','O'],ord:['H','O'],ans:{a:[['H',2],['O',1]],g:null},f:'H₂O',mr:18,sol:'Mr = 2·1 + 1·16 = 2 + 16 = 18 а.о.м.'},
+  {txt:'Молекула складається з <b>1 атома Карбону</b> і <b>2 атомів Оксигену</b>.',els:['C','O'],ord:['C','O'],ans:{a:[['C',1],['O',2]],g:null},f:'CO₂',mr:44,sol:'Mr = 1·12 + 2·16 = 12 + 32 = 44 а.о.м.'},
+  {txt:'Молекула складається з <b>2 атомів Гідрогену</b>, <b>1 атома Сульфуру</b> і <b>4 атомів Оксигену</b>.',els:['H','S','O'],ord:['H','S','O'],ans:{a:[['H',2],['S',1],['O',4]],g:null},f:'H₂SO₄',mr:98,sol:'Mr = 2·1 + 1·32 + 4·16 = 2 + 32 + 64 = 98 а.о.м.'},
+  {txt:'Молекула складається з <b>1 атома Натрію</b> і <b>1 атома Хлору</b>.',els:['Na','Cl'],ord:['Na','Cl'],ans:{a:[['Na',1],['Cl',1]],g:null},f:'NaCl',mr:58.5,sol:'Mr = 1·23 + 1·35,5 = 58,5 а.о.м.'},
+  {txt:'Молекула складається з <b>2 атомів Натрію</b> і <b>1 атома Оксигену</b>.',els:['Na','O'],ord:['Na','O'],ans:{a:[['Na',2],['O',1]],g:null},f:'Na₂O',mr:62,sol:'Mr = 2·23 + 1·16 = 46 + 16 = 62 а.о.м.'},
+  {txt:'Молекула складається з <b>1 атома Магнію</b> і <b>1 атома Оксигену</b>.',els:['Mg','O'],ord:['Mg','O'],ans:{a:[['Mg',1],['O',1]],g:null},f:'MgO',mr:40,sol:'Mr = 1·24 + 1·16 = 24 + 16 = 40 а.о.м.'},
+  {txt:'Молекула складається з <b>2 атомів Алюмінію</b> і <b>3 атомів Оксигену</b>.',els:['Al','O'],ord:['Al','O'],ans:{a:[['Al',2],['O',3]],g:null},f:'Al₂O₃',mr:102,sol:'Mr = 2·27 + 3·16 = 54 + 48 = 102 а.о.м.'},
+  {txt:'Молекула складається з <b>1 атома Кальцію</b> і <b>2 груп OH</b> (кожна група: 1 атом Оксигену + 1 атом Гідрогену).',els:['Ca','O','H'],ord:['Ca'],go:['O','H'],ans:{a:[['Ca',1]],g:{a:[['O',1],['H',1]],c:2}},f:'Ca(OH)₂',mr:74,sol:'Mr = 1·40 + 2·(1·16 + 1·1) = 40 + 2·17 = 40 + 34 = 74 а.о.м.'},
+  {txt:'Молекула складається з <b>1 атома Кальцію</b> і <b>2 груп NO₃</b> (кожна група: 1 атом Нітрогену + 3 атоми Оксигену).',els:['Ca','N','O'],ord:['Ca'],go:['N','O'],ans:{a:[['Ca',1]],g:{a:[['N',1],['O',3]],c:2}},f:'Ca(NO₃)₂',mr:164,sol:'Mr = 1·40 + 2·(1·14 + 3·16) = 40 + 2·62 = 40 + 124 = 164 а.о.м.'},
+  {txt:'Молекула складається з <b>1 атома Натрію</b> і <b>1 групи OH</b> (1 атом Оксигену + 1 атом Гідрогену).',els:['Na','O','H'],ord:['Na'],go:['O','H'],ans:{a:[['Na',1]],g:{a:[['O',1],['H',1]],c:1}},f:'NaOH',mr:40,sol:'Mr = 1·23 + 1·16 + 1·1 = 23 + 16 + 1 = 40 а.о.м.'},
+  {txt:'Молекула складається з <b>2 атомів Алюмінію</b> і <b>3 груп SO₄</b> (кожна група: 1 атом Сульфуру + 4 атоми Оксигену).',els:['Al','S','O'],ord:['Al'],go:['S','O'],ans:{a:[['Al',2]],g:{a:[['S',1],['O',4]],c:3}},f:'Al₂(SO₄)₃',mr:342,sol:'Mr = 2·27 + 3·(1·32 + 4·16) = 54 + 3·96 = 54 + 288 = 342 а.о.м.'},
+  {txt:'Молекула складається з <b>3 атомів Кальцію</b> і <b>2 груп PO₄</b> (кожна група: 1 атом Фосфору + 4 атоми Оксигену).',els:['Ca','P','O'],ord:['Ca'],go:['P','O'],ans:{a:[['Ca',3]],g:{a:[['P',1],['O',4]],c:2}},f:'Ca₃(PO₄)₂',mr:310,sol:'Mr = 3·40 + 2·(1·31 + 4·16) = 120 + 2·95 = 120 + 190 = 310 а.о.м.'},
+];
+let qi=0,score=0,uA=[],gA=[],gC=2,done=false,hint=false;
+const S=n=>n>1?`<sub>${n}</sub>`:'';
+const fa=(a,s)=>a.find(x=>x[0]===s);
+const sa=(a,s,d)=>{const e=fa(a,s);if(e){e[1]=Math.max(0,e[1]+d);if(e[1]===0)a.splice(a.indexOf(e),1);}else if(d>0)a.push([s,d]);};
+const srt=(a,o)=>[...a].sort((x,y)=>(o?(o.indexOf(x[0])<0?99:o.indexOf(x[0]))-(o.indexOf(y[0])<0?99:o.indexOf(y[0])):0));
+function buildF(){
+  const t=T[qi];
+  if(!uA.length&&!gA.length)return'<span class="fph">тут з\'явиться формула</span>';
+  let f='';srt(uA,t.ord).forEach(([s,n])=>f+=s+S(n));
+  if(t.ans.g&&gA.length){let i='';srt(gA,t.go).forEach(([s,n])=>i+=s+S(n));if(i)f+=`(${i})${S(gC)}`;}
+  return f;
+}
+function fmatch(){
+  const t=T[qi],aa=t.ans.a;
+  if(uA.length!==aa.length)return false;
+  for(const[s,n]of aa){const f=fa(uA,s);if(!f||f[1]!==n)return false;}
+  if(t.ans.g){
+    if(!gA.length||gC!==t.ans.g.c)return false;
+    const ga=t.ans.g.a;if(gA.length!==ga.length)return false;
+    for(const[s,n]of ga){const f=fa(gA,s);if(!f||f[1]!==n)return false;}
+  }else if(gA.length)return false;
+  return true;
+}
+function calcMr(){
+  let m=0;uA.forEach(([s,n])=>{if(EL[s])m+=EL[s].ar*n;});
+  const t=T[qi];if(t.ans.g&&gA.length){let g=0;gA.forEach(([s,n])=>{if(EL[s])g+=EL[s].ar*n;});m+=g*gC;}
+  return +m.toFixed(1);
+}
+function chipsH(arr,isG,o){
+  const s=srt(arr,o);
+  if(!s.length)return`<span style="font-size:18px;font-weight:700;color:${isG?'#a78bfa':'#3730a3'}">${isG?'Додай атоми до групи':'Клікай на елементи нижче'}</span>`;
+  return s.map(([sym,n])=>`<div class="chip${isG?' gc':''}"><span class="cs">${sym}${n>1?`<sub style="font-size:13px">${n}</sub>`:''}</span><button class="xb" onclick="ch('${sym}',-1,${isG})">−</button><span class="cnt">${n}</span><button class="xb" onclick="ch('${sym}',1,${isG})">+</button><button class="xb" onclick="ch('${sym}',-99,${isG})">×</button></div>`).join('');
+}
+function mrTbl(){
+  const t=T[qi],hG=!!t.ans.g&&gA.length>0;
+  let rows='',ri=0;
+  srt(uA,t.ord).forEach(([s,n])=>{
+    if(!EL[s])return;
+    const ar=EL[s].ar,p=+(ar*n).toFixed(1),i=ri++;
+    rows+=`<tr><td><span class="sym-l">${s}</span> <span class="sym-s">(${EL[s].n})</span></td><td><input class="mi" id="ra${i}" type="number" step="0.5" placeholder="Ar=?" oninput="ckR(${i},${ar},${n},${p})"/></td><td class="op">×</td><td><input class="mi" id="rn${i}" type="number" placeholder="к-ть?" oninput="ckR(${i},${ar},${n},${p})"/></td><td class="op">=</td><td><input class="mi" id="rp${i}" type="number" step="0.5" placeholder="?" oninput="ckR(${i},${ar},${n},${p})"/></td></tr>`;
+  });
+  if(hG){
+    if(rows)rows+=`<tr><td colspan="6"><div style="height:2px;background:#4c1d95;margin:6px 0;border-radius:1px"></div></td></tr>`;
+    rows+=`<tr><td colspan="6" class="grl">⬡ Елементи в групі (груп: ${gC}):</td></tr>`;
+    let gs=0;
+    srt(gA,t.go).forEach(([s,n])=>{
+      if(!EL[s])return;
+      const ar=EL[s].ar,p=+(ar*n).toFixed(1);gs+=p;const i=ri++;
+      rows+=`<tr><td><span class="sym-l" style="color:#ddd6fe">${s}</span> <span class="sym-s" style="color:#a78bfa">(у групі)</span></td><td><input class="mi" id="ra${i}" type="number" step="0.5" placeholder="Ar=?" oninput="ckR(${i},${ar},${n},${p})" style="border-color:#7c3aed"/></td><td class="op" style="color:#a78bfa">×</td><td><input class="mi" id="rn${i}" type="number" placeholder="к-ть?" oninput="ckR(${i},${ar},${n},${p})" style="border-color:#7c3aed"/></td><td class="op" style="color:#a78bfa">=</td><td><input class="mi" id="rp${i}" type="number" step="0.5" placeholder="?" oninput="ckR(${i},${ar},${n},${p})" style="border-color:#7c3aed"/></td></tr>`;
+    });
+    const gsr=+gs.toFixed(1),gt=+(gsr*gC).toFixed(1);
+    rows+=`<tr><td colspan="4" class="grl">Маса 1 групи =</td><td class="op" style="color:#a78bfa">=</td><td><input class="mi" id="rgs" type="number" step="0.5" placeholder="?" oninput="ckF('rgs',${gsr})" style="border-color:#7c3aed"/></td></tr><tr><td colspan="4" class="grl">Маса всіх груп (×${gC}) =</td><td class="op" style="color:#a78bfa">=</td><td><input class="mi" id="rgt" type="number" step="0.5" placeholder="?" oninput="ckF('rgt',${gt})" style="border-color:#7c3aed"/></td></tr>`;
+  }
+  return rows;
+}
+function ckR(i,ar,n,p){
+  const mk=(id,v)=>{const e=document.getElementById(id);if(!e||e.value==='')return;e.className='mi '+(Math.abs(parseFloat(e.value)-v)<0.4?'ok':'er');};
+  mk('ra'+i,ar);mk('rn'+i,n);mk('rp'+i,p);
+}
+function ckF(id,v){const e=document.getElementById(id);if(!e||e.value==='')return;e.className='mi '+(Math.abs(parseFloat(e.value)-v)<0.4?'ok':'er');}
+function ckT(){const e=document.getElementById('rtot');if(!e||e.value==='')return;e.className='ti '+(Math.abs(parseFloat(e.value)-calcMr())<0.4?'ok':'er');}
+function mrBlock(){
+  const t=T[qi],hG=!!t.ans.g,sn=hG?3:2,rows=mrTbl();
+  return`<div class="step" id="mrblk"><div class="stitle"><span class="bar"></span>Крок ${sn} — розрахуй відносну молекулярну масу</div><div class="note">Заповни кожну комірку самостійно: атомну масу (Ar), кількість атомів і добуток.<br>Зелений колір = правильно, червоний = помилка.</div>${rows?`<table class="mr-tbl"><thead><tr><th>Елемент</th><th>Ar</th><th></th><th>Кількість</th><th></th><th>Добуток</th></tr></thead><tbody>${rows}</tbody></table>`:'<div class="note">Спочатку склади формулу вище</div>'}<div class="total"><span class="tl">Mr =</span><input class="ti" type="number" id="rtot" step="0.5" placeholder="?" oninput="ckT()"/><span class="tu">а.о.м.</span></div></div>`;
+}
+function render(){
+  if(qi>=T.length){fin();return;}
+  const t=T[qi];
+  document.getElementById('qn').textContent=`${qi+1}/12`;
+  document.getElementById('sc').textContent=score;
+  document.getElementById('pbf').style.width=`${(qi/12)*100}%`;
+  const hG=!!t.ans.g;
+  const refs=t.els.map(s=>`<div class="ref"><span class="rsym">${s}</span><span class="rname">${EL[s].n}, Ar = ${EL[s].ar}</span></div>`).join('');
+  let gBlock='';
+  if(hG){gBlock=`<div class="step gs"><div class="stitle"><span class="bar"></span>Крок 2 — склади групу (що стоятиме в дужках)</div><div class="chips" id="gch">${chipsH(gA,true,t.go)}</div><div class="picks">${t.els.map(s=>`<button class="pick gp" onclick="addA('${s}',true)">${s}<span class="pn">${EL[s].n}</span></button>`).join('')}</div><div class="cntr"><span class="clbl">Кількість груп (індекс після дужок):</span><button class="cbt" onclick="cgc(-1)">−</button><span class="cnv" id="gcv">${gC}</span><button class="cbt" onclick="cgc(1)">+</button></div></div>`;}
+  let fb='',extra='';
+  if(done){
+    const fok=fmatch(),el=document.getElementById('rtot'),mv=el?parseFloat(el.value):NaN,mok=!isNaN(mv)&&Math.abs(mv-t.mr)<0.4;
+    fb=fok&&mok?`<div class="fb fok">✓ Формула <b>${t.f}</b> правильна! Mr = ${t.mr} а.о.м. — чудово!</div>`:`<div class="fb fer">✗ ${!fok&&!mok?`Формула невірна (правильна: <b>${t.f}</b>) і Mr має бути ${t.mr} а.о.м.`:!fok?`Формула невірна. Правильна: <b>${t.f}</b>.`:`Формула <b>${t.f}</b> вірна! Але Mr = ${t.mr}, а не ${isNaN(mv)?'?':mv}.`}</div>`;
+    if(hint)fb+=`<div class="fb fhi">💡 <b>Розв'язання:</b> ${t.sol}</div>`;
+    extra=`<button class="bnext" onclick="nxt()">${qi<T.length-1?'Наступне →':'Завершити'}</button>`;
+  }else{if(hint)fb=`<div class="fb fhi">💡 <b>Підказка:</b> ${t.sol}</div>`;}
+  document.getElementById('area').innerHTML=`<div class="card"><div class="task-num">Завдання ${qi+1} з 12</div><div class="task-text">${t.txt}</div><div class="refs">${refs}</div></div><div class="step"><div class="stitle"><span class="bar"></span>Крок 1 — склади хімічну формулу</div><div class="formula" id="fp">${buildF()}</div><div class="chips" id="mch">${chipsH(uA,false,t.ord)}</div><div class="picks">${t.els.map(s=>`<button class="pick" onclick="addA('${s}',false)">${s}<span class="pn">${EL[s].n}</span></button>`).join('')}</div></div>${gBlock}${mrBlock()}<div class="btnrow"><button class="bcheck" onclick="doCheck()">Перевірити</button>${extra}<button class="bhint" onclick="doHint()">${done&&!hint?"💡 Розв'язання":"💡 Підказка"}</button></div>${fb}`;
+}
+function addA(s,isG){isG?sa(gA,s,1):sa(uA,s,1);ref();}
+function ch(s,d,isG){isG?sa(gA,s,d):sa(uA,s,d);ref();}
+function cgc(d){gC=Math.max(1,gC+d);const e=document.getElementById('gcv');if(e)e.textContent=gC;ref();}
+function ref(){
+  const t=T[qi];
+  const fp=document.getElementById('fp');if(fp)fp.innerHTML=buildF();
+  const mc=document.getElementById('mch');if(mc)mc.innerHTML=chipsH(uA,false,t.ord);
+  const gc=document.getElementById('gch');if(gc)gc.innerHTML=chipsH(gA,true,t.go);
+  const mb=document.getElementById('mrblk');if(mb)mb.outerHTML=mrBlock();
+}
+function doCheck(){
+  const fok=fmatch(),el=document.getElementById('rtot'),mv=el?parseFloat(el.value):NaN,mok=!isNaN(mv)&&Math.abs(mv-T[qi].mr)<0.4;
+  if(fok&&mok)score++;done=true;render();
+}
+function doHint(){
+  hint=true;
+  const ex=document.querySelector('.fb.fhi');
+  if(!ex){const t=T[qi],d=document.createElement('div');d.className='fb fhi';d.innerHTML=`💡 <b>${done?"Розв'язання":"Підказка"}:</b> ${t.sol}`;document.getElementById('area').appendChild(d);}
+}
+function nxt(){qi++;done=false;hint=false;uA=[];gA=[];gC=T[qi]&&T[qi].ans&&T[qi].ans.g?T[qi].ans.g.c:2;render();}
+function fin(){
+  document.getElementById('pbf').style.width='100%';
+  const ic=score===12?'🏆':score>=9?'⭐':'💪';
+  const msg=score===12?'Відмінно! Всі 12 формул правильні!':score>=9?'Дуже добре! Ще трохи практики!':score>=6?'Непогано, але є над чим попрацювати.':'Не засмучуйся — спробуй ще раз!';
+  document.getElementById('area').innerHTML=`<div class="fin"><div class="fin-ic">${ic}</div><h3>Тренажер завершено!</h3><div class="score-big">${score}/12</div><p>${msg}</p><button class="bcheck" onclick="restart()" style="margin-top:8px;font-size:20px;padding:16px 44px">Почати спочатку</button></div>`;
+}
+function restart(){qi=0;score=0;done=false;hint=false;uA=[];gA=[];gC=2;render();}
+render();
+</script>
+</body>
+</html>
